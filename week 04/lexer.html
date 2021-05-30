@@ -19,6 +19,7 @@
                     this.table.set(start + length, $1);
                     ++length;
                     let r = this.compileRegExp(source, $1, start + length);
+                    length += r.length;
                     return `(${r.source})`
                 });
                 return {
@@ -81,7 +82,7 @@
                 }
             }
         }
-        
+
         scan(`
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
